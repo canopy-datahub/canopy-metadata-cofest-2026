@@ -16,17 +16,17 @@ XFORM=transform/osti_to_cedar.transform.yaml
 DATA=${1:-data/example_osti_record.yaml}
 OUT=output
 
-echo "[1/4] Generating full-fidelity CEDAR template from osti_schema.yaml ..."
+echo "[1/5] Generating full-fidelity CEDAR template from osti_schema.yaml ..."
 python scripts/linkml_to_cedar.py "$SCHEMA_DIR/osti_schema.yaml" \
   --root-class Record --name "OSTI Submission Metadata Template" \
   -o "$OUT/osti_cedar_template_full.yaml"
 
-echo "[2/4] Generating submission CEDAR template from osti_cedar.yaml ..."
+echo "[2/5] Generating submission CEDAR template from osti_cedar.yaml ..."
 python scripts/linkml_to_cedar.py "$SCHEMA_DIR/osti_cedar.yaml" \
   --root-class OSTIRecord --name "OSTI Submission Metadata Template" \
   -o "$OUT/osti_cedar_template.yaml"
 
-echo "[3/4] Transforming OSTI data -> CEDAR-aligned data (linkml-map) ..."
+echo "[3/5] Transforming OSTI data -> CEDAR-aligned data (linkml-map) ..."
 linkml-map map-data --unrestricted-eval \
   -T "$XFORM" \
   -s "$SCHEMA_DIR/osti_schema.yaml" \
@@ -35,7 +35,11 @@ linkml-map map-data --unrestricted-eval \
   -o "$OUT/osti_cedar_data.yaml" \
   "$DATA"
 
-echo "[4/4] Wrapping CEDAR-aligned data into a CEDAR instance ..."
+echo "[4/5] Enriching ontology terms (BioPortal) ..."
+# Needs $BIOPORTAL_API_KEY; without it the *_term fields are left empty.
+python scripts/enrich_terms.py --data "$OUT/osti_cedar_data.yaml"
+
+echo "[5/5] Wrapping CEDAR-aligned data into a CEDAR instance ..."
 python scripts/to_cedar_instance.py \
   --template "$OUT/osti_cedar_template.yaml" \
   --data "$OUT/osti_cedar_data.yaml" \

@@ -52,6 +52,13 @@ def normalize_iri(field_type: str, value: str) -> str:
 
 def wrap_scalar(child: dict, value):
     field_type = child["type"]
+    # controlled-term fields carry an ontology term: {id, label}. The enriched
+    # value is a mapping with id/iri and label keys.
+    if field_type == "controlled-term-field":
+        if isinstance(value, dict):
+            iri = value.get("id") or value.get("iri")
+            return {"id": iri, "label": value.get("label", "")}
+        return {"id": value, "label": ""}
     if field_type in IRI_FIELD_TYPES:
         return {"id": normalize_iri(field_type, value)}
     wrapped: dict = {"value": value if isinstance(value, str) else str(value)}

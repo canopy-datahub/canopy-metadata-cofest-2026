@@ -49,6 +49,7 @@ puts on the CEDAR envelope, driven by the template's field types.
 | `transform/osti_to_cedar.transform.yaml` | The **linkml-map** TransformationSpecification: `osti_schema` → `osti_cedar`. |
 | `scripts/fetch_osti.py` | Fetch a record by OSTI ID (E-Link if token, else public API) and normalize it into `osti_schema` shape. |
 | `scripts/linkml_to_cedar.py` | Generic LinkML-schema → CEDAR-template generator. |
+| `scripts/enrich_terms.py` | Fill the `*_term` ontology fields via BioPortal best-match search. |
 | `scripts/to_cedar_instance.py` | Wraps CEDAR-aligned data into a CEDAR instance. |
 | `scripts/osti_to_cedar.sh` | **Full pipeline for one record**: fetch → transform → wrap. |
 | `scripts/run_pipeline.sh` | Runs the transform on the bundled example (no fetch). |
@@ -75,10 +76,12 @@ upload-ready CEDAR instance in one command:
 
 ```bash
 . .venv/bin/activate
+export BIOPORTAL_API_KEY=...          # optional; enables ontology-term enrichment
 scripts/osti_to_cedar.sh 3027336
-#   [1/3] fetch  -> data/osti_3027336.yaml
-#   [2/3] transform (linkml-map) -> output/osti_3027336_data.yaml
-#   [3/3] wrap   -> output/osti_3027336_instance.yaml   (ready to upload)
+#   [1/4] fetch    -> data/osti_3027336.yaml
+#   [2/4] transform (linkml-map) -> output/osti_3027336_data.yaml
+#   [3/4] enrich   ontology terms (BioPortal) -> fills *_term fields
+#   [4/4] wrap     -> output/osti_3027336_instance.yaml   (ready to upload)
 ```
 
 **Two fetch sources**, chosen automatically by `fetch_osti.py`:
@@ -93,6 +96,31 @@ scripts/osti_to_cedar.sh 3027336
   `[affiliation]` and `(ORCID:…)`; `sponsor_orgs`/`research_orgs` →
   `organizations`; contract numbers → `identifiers`), so the transform runs
   identically either way. Public records default `access_limitations` to `UNL`.
+
+### Ontology-term enrichment
+
+Some fields carry a string whose meaning is a known concept. For those, the
+schema pairs the original field with a `*_term` **controlled-term** field, and
+`enrich_terms.py` fills it with the best-match ontology term (across *any*
+BioPortal ontology) as `{id, label}`:
+
+| source field | term field | example |
+|---|---|---|
+| `product_type` | `product_type_term` | `DA` → *Dataset* (`MESH:D064886`) |
+| `language` | `language_term` | `English` → *English* (SNOMEDCT) |
+| `country_publication_code` | `country_term` | `US` → *United States* (`MESH:D014481`) |
+
+Each `*_term` field is declared in `osti_cedar.yaml` with a `cedar_field_type:
+controlled-term` annotation (plus an ontology for the CEDAR picker); the
+generator renders it as a controlled-term field. A CEDAR controlled-term field
+needs *some* ontology constraint to accept `{id, label}` values, but that
+constraint only scopes the form's picker — instances may hold a best-match term
+from a different ontology and still validate. Enrichment needs a BioPortal API
+key (`--apikey`, `$BIOPORTAL_API_KEY`, or `--apikey-file`); without one the
+`*_term` fields are simply left empty.
+
+To add another enriched field: give its slot a `*_term` companion in
+`osti_cedar.yaml` and add a row to `ENRICHMENTS` in `enrich_terms.py`.
 
 ### Upload to CEDAR
 

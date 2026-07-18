@@ -38,17 +38,21 @@ if [ ! -f "$TEMPLATE" ]; then
     --name "OSTI Submission Metadata Template" -o "$TEMPLATE"
 fi
 
-echo "[1/3] Fetching OSTI $OSTI_ID ..."
+echo "[1/4] Fetching OSTI $OSTI_ID ..."
 python scripts/fetch_osti.py "$OSTI_ID" "${TOKEN_ARG[@]}" -o "data/osti_${OSTI_ID}.yaml"
 
-echo "[2/3] Transforming (linkml-map) ..."
+echo "[2/4] Transforming (linkml-map) ..."
 linkml-map map-data --unrestricted-eval \
   -T transform/osti_to_cedar.transform.yaml \
   -s schema/osti_schema.yaml --target-schema schema/osti_cedar.yaml \
   --source-type records -o "output/osti_${OSTI_ID}_data.yaml" \
   "data/osti_${OSTI_ID}.yaml"
 
-echo "[3/3] Wrapping into a CEDAR instance ..."
+echo "[3/4] Enriching ontology terms (BioPortal) ..."
+# Needs $BIOPORTAL_API_KEY; without it the *_term fields are left empty.
+python scripts/enrich_terms.py --data "output/osti_${OSTI_ID}_data.yaml"
+
+echo "[4/4] Wrapping into a CEDAR instance ..."
 python scripts/to_cedar_instance.py --template "$TEMPLATE" \
   --data "output/osti_${OSTI_ID}_data.yaml" --is-based-on "$IBO" \
   -o "output/osti_${OSTI_ID}_instance.yaml"

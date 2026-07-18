@@ -52,6 +52,21 @@ def title_case(name: str) -> str:
     return " ".join(w.capitalize() if w.islower() else w for w in name.split("_"))
 
 
+def _ann(slot, key: str):
+    """Return the value of a slot annotation, or None.
+
+    slot.annotations may be a plain dict or a linkml_runtime JsonObj, so handle
+    both access styles.
+    """
+    anns = getattr(slot, "annotations", None)
+    if not anns:
+        return None
+    a = anns.get(key) if isinstance(anns, dict) else getattr(anns, key, None)
+    if a is None:
+        return None
+    return getattr(a, "value", a)
+
+
 def base_type(sv: SchemaView, range_name: str) -> str:
     """Resolve a LinkML type (following typeof) down to its base name."""
     t = sv.get_type(range_name)
@@ -85,6 +100,26 @@ def field_for_slot(sv: SchemaView, slot: SlotDefinition, seen_classes: tuple[str
     config: dict = {}
     if slot.required:
         config["required"] = True
+
+    # ---- annotation-driven controlled-term field -------------------------
+    # A slot annotated `cedar_field_type: controlled-term` becomes a CEDAR
+    # controlled-term field bound to the named ontology (the constraint scopes
+    # the picker; instances may still hold a best-match term from any ontology).
+    if _ann(slot, "cedar_field_type") == "controlled-term":
+        child["type"] = "controlled-term-field"
+        child["datatype"] = "iri"
+        child["values"] = [{
+            "type": "ontology",
+            "acronym": _ann(slot, "cedar_ontology_acronym"),
+            "ontologyName": _ann(slot, "cedar_ontology_name"),
+            "iri": _ann(slot, "cedar_ontology_iri"),
+        }]
+        if slot.multivalued:
+            config["multiple"] = True
+            config.setdefault("minItems", 0)
+        if config:
+            child["configuration"] = config
+        return child
 
     lname = slot.name.lower()
 

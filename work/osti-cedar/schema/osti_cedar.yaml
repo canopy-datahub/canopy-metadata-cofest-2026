@@ -57,6 +57,16 @@ classes:
         description: Description or abstract for this record.
       product_type:
         description: OSTI product type code (e.g. DA, JA, TR).
+      product_type_term:
+        description: >-
+          Ontology term for the product type, resolved from the OSTI code
+          (best match across any ontology; filled by scripts/enrich_terms.py).
+        range: uri
+        annotations:
+          cedar_field_type: controlled-term
+          cedar_ontology_acronym: NCIT
+          cedar_ontology_name: National Cancer Institute Thesaurus
+          cedar_ontology_iri: https://data.bioontology.org/ontologies/NCIT
       product_type_other:
         description: Free-text product type, when product_type is OTHER.
       dataset_type:
@@ -87,9 +97,29 @@ classes:
         description: Code of the DOE site submitting this document.
       country_publication_code:
         description: Country of publication code for this record.
+      country_term:
+        description: >-
+          Ontology term for the country of publication (best match across any
+          ontology; filled by scripts/enrich_terms.py).
+        range: uri
+        annotations:
+          cedar_field_type: controlled-term
+          cedar_ontology_acronym: NCIT
+          cedar_ontology_name: National Cancer Institute Thesaurus
+          cedar_ontology_iri: https://data.bioontology.org/ontologies/NCIT
       language:
         description: Language(s) of this record.
         multivalued: true
+      language_term:
+        description: >-
+          Ontology term for the (first) language (best match across any
+          ontology; filled by scripts/enrich_terms.py).
+        range: uri
+        annotations:
+          cedar_field_type: controlled-term
+          cedar_ontology_acronym: NCIT
+          cedar_ontology_name: National Cancer Institute Thesaurus
+          cedar_ontology_iri: https://data.bioontology.org/ontologies/NCIT
       availability:
         description: Availability information for this record.
       access_limitations:
