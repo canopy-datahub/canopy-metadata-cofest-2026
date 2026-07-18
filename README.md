@@ -191,7 +191,7 @@ The repositories below are forks created by participants in the Canopy: AI-Assis
 
 | Participant     | Institution                              | Email                                                                 | Project Fork                                                                        |
 | --------------- | ---------------------------------------- | --------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
-| Anne Ketter     | ComputerCraft                            | [aketter@computercraft-usa.com](mailto:aketter@computercraft-usa.com) | [View repository](https://github.com/annekeCC/canopy-metadata-ccncbi-2026)          |
+| Anne Ketter     | Computercraft                            | [aketter@computercraft-usa.com](mailto:aketter@computercraft-usa.com) | [View repository](https://github.com/annekeCC/canopy-metadata-ccncbi-2026)          |
 | Anoushka Prabhu | Johns Hopkins University                 | [anoushkaprabhu3@gmail.com](mailto:anoushkaprabhu3@gmail.com)         | [View repository](https://github.com/anoushka-prabhu30/canopy-metadata-cofest-2026) |
 | Aydan Gasimova  | California Medical Innovations Institute | [agasimova@calmi2.org](mailto:agasimova@calmi2.org)                   | Not yet available                                                                   |
 | Daniel Kerchner | George Washington University             | [kerchner@gwu.edu](mailto:kerchner@gwu.edu)                           | [View repository](https://github.com/kerchner/canopy-metadata-cofest-2026)          |
