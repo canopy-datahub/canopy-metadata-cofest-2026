@@ -18,6 +18,8 @@ The goal of this CoFest project is to explore reusable AI-assisted workflows for
 
 As illustrated below, these workflows can use AI to extract and structure information from unstructured documents, populate CEDAR templates, and generate standards-based metadata instances.
 
+![workflow](images/workflow.png)
+
 Rather than building a workflow tailored to a single dataset, we encourage participants to experiment with prompting strategies, pipelines, and agentic workflows that can be reused across different studies and research domains.
 
 Participants are encouraged to explore ideas such as:
