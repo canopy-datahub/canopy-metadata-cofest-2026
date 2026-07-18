@@ -1,0 +1,58 @@
+# Example OSTI (E-Link 2.0) record data, conforming to osti_schema.yaml
+# (root class `records`). Used to demonstrate the osti_to_cedar transform.
+records:
+  - osti_id: 1888327
+    title: "KG-Registry: a registry of knowledge graphs and their components"
+    description: >-
+      A dataset accompanying the KG-Registry resource, cataloging knowledge
+      graphs, their data sources, and how they fit together.
+    product_type: DA
+    publication_date: "2025-03-14"
+    site_ownership_code: LBNL
+    country_publication_code: US
+    availability: "Available at https://kghub.org/kg-registry/"
+    doi: "10.11578/1888327"
+    keywords:
+      - knowledge graph
+      - metadata
+      - registry
+      - FAIR data
+    subject_category_code:
+      - "97"
+    access_limitations:
+      - UNL
+    persons:
+      - type: AUTHOR
+        first_name: J
+        middle_name: Harry
+        last_name: Caufield
+        orcid: "0000-0001-5705-7831"
+        email:
+          - jhc@lbl.gov
+        affiliations:
+          - name: Lawrence Berkeley National Laboratory
+            ror_id: 02jbv0t02
+      - type: CONTACT
+        first_name: Christopher
+        last_name: Mungall
+        email:
+          - cjmungall@lbl.gov
+        affiliations:
+          - name: Lawrence Berkeley National Laboratory
+            ror_id: 02jbv0t02
+    organizations:
+      - type: SPONSOR
+        name: U.S. Department of Energy
+        identifiers:
+          - type: CN_DOE
+            value: DE-AC02-05CH11231
+      - type: RESEARCHING
+        name: Lawrence Berkeley National Laboratory
+        ror_id: 02jbv0t02
+    identifiers:
+      - type: OTHER_ID
+        value: "1888327"
+    related_identifiers:
+      - type: DOI
+        relation: IsSupplementTo
+        value: "10.1093/gigascience/giaf152"
