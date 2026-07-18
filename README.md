@@ -191,9 +191,10 @@ The repositories below are forks created by participants in the Canopy: AI-Assis
 
 | Participant     | Institution                              | Email                                                                 | Project Fork                                                                        |
 | --------------- | ---------------------------------------- | --------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
-| Anne Ketter     | Computercraft                            | [aketter@computercraft-usa.com](mailto:aketter@computercraft-usa.com) | [View repository](https://github.com/annekeCC/canopy-metadata-ccncbi-2026)          |
-| Anoushka Prabhu | Johns Hopkins University                 | [anoushkaprabhu3@gmail.com](mailto:anoushkaprabhu3@gmail.com)         | [View repository](https://github.com/anoushka-prabhu30/canopy-metadata-cofest-2026) |
+| Harry Caufield  | Lawrence Berkeley National Laboratory    | [jhc@lbl.gov](mailto:jhc@lbl.gov)                                     | Not yet available                                                                   |
 | Aydan Gasimova  | California Medical Innovations Institute | [agasimova@calmi2.org](mailto:agasimova@calmi2.org)                   | Not yet available                                                                   |
 | Daniel Kerchner | George Washington University             | [kerchner@gwu.edu](mailto:kerchner@gwu.edu)                           | [View repository](https://github.com/kerchner/canopy-metadata-cofest-2026)          |
-| Harry Caufield  | Lawrence Berkeley National Laboratory    | [jhc@lbl.gov](mailto:jhc@lbl.gov)                                     | Not yet available                                                                   |
+| Anne Ketter     | Computercraft                            | [aketter@computercraft-usa.com](mailto:aketter@computercraft-usa.com) | [View repository](https://github.com/annekeCC/canopy-metadata-ccncbi-2026)          |
+| Anoushka Prabhu | Johns Hopkins University                 | [anoushkaprabhu3@gmail.com](mailto:anoushkaprabhu3@gmail.com)         | [View repository](https://github.com/anoushka-prabhu30/canopy-metadata-cofest-2026) |
 | Nahid Zeinali   | California Medical Innovations Institute | [nzeinali@calmi2.org](mailto:nzeinali@calmi2.org)                     | [View repository](https://github.com/Nahidzeinali-web/canopy-metadata-cofest-2026)  |
+
