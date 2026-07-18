@@ -1,0 +1,140 @@
+id: https://w3id.org/brc/osti_to_cedar
+title: osti_to_cedar
+# Transforms OSTI (E-Link 2.0) record data into the CEDAR-aligned osti_cedar
+# shape. Run with linkml-map's map-data command (see scripts/run_pipeline.sh).
+#
+# Expression dialect note: linkml-map's default (restricted) evaluator binds
+# each source slot as a BARE NAME (e.g. `first_name`, not `src.first_name`) and
+# uses simpleeval's EvalWithCompoundTypes -- list/dict literals, indexing and
+# comprehensions are allowed, but attribute access (obj.attr) is NOT, so nested
+# objects are read with dict indexing (e.g. affiliations[0]['name']). Enum-valued
+# OSTI slots are read through a bare-name expr so linkml-map does not try to map
+# the enum onto the plain-string target range.
+source_schema: osti_schema
+target_schema: osti_cedar
+
+class_derivations:
+
+  # osti_schema root class `records` -> osti_cedar root `RecordCollection`
+  RecordCollection:
+    populated_from: records
+    slot_derivations:
+      records:
+        populated_from: records
+
+  OSTIRecord:
+    populated_from: Record
+    slot_derivations:
+      title:
+        populated_from: title
+      description:
+        populated_from: description
+      # Enum-valued in OSTI; read as a bare-name string label for CEDAR.
+      product_type:
+        expr: "product_type"
+      publication_date:
+        populated_from: publication_date
+      publication_date_text:
+        populated_from: publication_date_text
+      doi:
+        populated_from: doi
+      # Derived: build the OSTI landing-page URL from the record's OSTI ID.
+      osti_landing_url:
+        expr: "'https://www.osti.gov/biblio/' + str(osti_id) if osti_id else None"
+      site_ownership_code:
+        populated_from: site_ownership_code
+      country_publication_code:
+        populated_from: country_publication_code
+      availability:
+        populated_from: availability
+      edition:
+        populated_from: edition
+      volume:
+        populated_from: volume
+      issue:
+        populated_from: issue
+      journal_name:
+        populated_from: journal_name
+      conference_title:
+        populated_from: conference_title
+      keywords:
+        populated_from: keywords
+      subject_category_codes:
+        populated_from: subject_category_code
+      # Enum-valued, multivalued; pass the list of codes through as strings.
+      access_limitations:
+        expr: "access_limitations"
+      persons:
+        populated_from: persons
+      organizations:
+        populated_from: organizations
+      identifiers:
+        populated_from: identifiers
+      related_identifiers:
+        populated_from: related_identifiers
+
+  CedarPerson:
+    populated_from: Person
+    slot_derivations:
+      type:
+        expr: "type"
+      # Derived: assemble one display name from OSTI's first/middle/last parts.
+      name:
+        expr: "(first_name + ' ' + middle_name + ' ' + last_name) if middle_name else (first_name + ' ' + last_name)"
+      orcid:
+        populated_from: orcid
+      # Derived: OSTI stores a list of emails; CEDAR wants a single contact.
+      email:
+        expr: "email[0] if email else None"
+      affiliations:
+        populated_from: affiliations
+      contributor_type:
+        expr: "contributor_type"
+
+  CedarAffiliation:
+    populated_from: Affiliation
+    slot_derivations:
+      name:
+        populated_from: name
+      ror_id:
+        populated_from: ror_id
+
+  CedarOrganization:
+    populated_from: Organization
+    slot_derivations:
+      type:
+        expr: "type"
+      name:
+        populated_from: name
+      ror_id:
+        populated_from: ror_id
+      contributor_type:
+        expr: "contributor_type"
+      identifiers:
+        populated_from: identifiers
+
+  CedarOrgIdentifier:
+    populated_from: OrganizationIdentifier
+    slot_derivations:
+      type:
+        expr: "type"
+      value:
+        populated_from: value
+
+  CedarIdentifier:
+    populated_from: Identifier
+    slot_derivations:
+      type:
+        expr: "type"
+      value:
+        populated_from: value
+
+  CedarRelatedIdentifier:
+    populated_from: RelatedIdentifier
+    slot_derivations:
+      type:
+        expr: "type"
+      relation:
+        expr: "relation"
+      value:
+        populated_from: value
