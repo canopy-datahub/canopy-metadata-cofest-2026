@@ -2,7 +2,7 @@
 
 ### CollaborationFest 2026 Project - [CoFest 2026](https://www.open-bio.org/events/bosc-2026/collaborationfest/)
 
-This project is part of **[Canopy](https://github.com/canopy-datahub)**, an open-source platform for building FAIR-aligned scientific data hubs that support data sharing, harmonization, discovery, and reuse across research studies.
+This project is defined in the context of **[Canopy](https://github.com/canopy-datahub)**, an open-source platform for building FAIR-aligned scientific data hubs that support data sharing, harmonization, discovery, and reuse across research studies.
 
 In Canopy, researchers organize and share data as studies, each consisting of one or more datasets together with structured metadata describing the study, its datasets, and related resources.
 This metadata is authored using **[CEDAR](https://metadatacenter.org/)**, an open-source platform for designing and managing machine-readable metadata templates.
