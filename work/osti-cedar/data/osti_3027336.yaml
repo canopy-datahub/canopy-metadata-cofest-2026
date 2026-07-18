@@ -11,7 +11,11 @@ records:
   doi: 10.17190/AMF/3027336
   product_type: DA
   publication_date: '2026-04-03'
+  entry_date: '2026-07-16'
   country_publication_code: US
+  languages:
+  - English
+  site_url: https://www.osti.gov/servlets/purl/3027336
   access_limitations:
   - UNL
   persons:

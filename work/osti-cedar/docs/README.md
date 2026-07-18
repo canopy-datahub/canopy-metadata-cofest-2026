@@ -45,7 +45,7 @@ puts on the CEDAR envelope, driven by the template's field types.
 | Path | What it is |
 |------|-----------|
 | `schema/osti_schema.yaml` | The source OSTI (E-Link 2.0) LinkML schema (unmodified). |
-| `schema/osti_cedar.yaml` | **CEDAR-aligned** LinkML schema: a submission-focused profile of OSTI (flattened person names, single contact email, dropped internal E-Link bookkeeping). The `target_schema` of the transform. |
+| `schema/osti_cedar.yaml` | **CEDAR-aligned** LinkML schema (~39 fields): the fields real OSTI records actually populate — bibliographic, journal, conference, identifiers, people/orgs — flattened for CEDAR (one display name per person, single contact email, nested affiliations/award IDs). Internal E-Link bookkeeping is dropped. The `target_schema` of the transform. |
 | `transform/osti_to_cedar.transform.yaml` | The **linkml-map** TransformationSpecification: `osti_schema` → `osti_cedar`. |
 | `scripts/fetch_osti.py` | Fetch a record by OSTI ID (E-Link if token, else public API) and normalize it into `osti_schema` shape. |
 | `scripts/linkml_to_cedar.py` | Generic LinkML-schema → CEDAR-template generator. |
@@ -201,13 +201,17 @@ It demonstrates the useful transform patterns:
 
 ### The CEDAR-aligned profile (`osti_cedar.yaml`)
 
-`osti_cedar.yaml` is intentionally a **submission-focused profile**, not a 1:1
-copy of all 126 OSTI fields: it keeps submitter-facing bibliographic fields and
-drops OSTI's internal/readonly E-Link bookkeeping (`added_by*`, `edited_by*`,
-`date_metadata_*`, `audit_logs`, ...). To carry *every* field through the
-transform instead, add the corresponding slots to `osti_cedar.yaml` and
-`slot_derivations` to the transform — the full-fidelity template
-(`osti_cedar_template_full.yaml`) already shows the complete field set.
+`osti_cedar.yaml` (~39 fields) is a **coverage-driven profile**, not a 1:1 copy
+of all 126 OSTI fields. Its field set was chosen by surveying ~100 live public
+OSTI records and keeping what they actually populate: identity/dates, DOI and
+full-text URLs, language, journal metadata (name/type/ISSN/publisher/volume/
+issue), conference and report fields, `doe_funded_flag`, keywords/subjects, and
+the nested people / organizations / identifiers / related-identifiers. It drops
+OSTI's internal/readonly E-Link bookkeeping (`added_by*`, `edited_by*`,
+`date_released_*`, `audit_logs`, `workflow_status`, ...) that a submitter never
+provides. To carry *every* remaining field, add the slot to `osti_cedar.yaml`
+and a `slot_derivation` to the transform — the full-fidelity template
+(`osti_cedar_template_full.yaml`) shows the complete 126-field set.
 
 ---
 

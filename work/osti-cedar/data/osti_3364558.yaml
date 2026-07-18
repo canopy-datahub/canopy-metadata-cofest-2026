@@ -25,8 +25,17 @@ records:
   doi: 10.1039/D6GC00489J
   product_type: JA
   publication_date: '2026-05-21'
+  entry_date: '2026-05-27'
   country_publication_code: US
   journal_name: Green Chemistry
+  journal_type: AM
+  journal_issn: ISSN 1463-9262
+  article_type: Accepted Manuscript
+  relation: 'Journal Name: Green Chemistry'
+  publisher_information: Royal Society of Chemistry (RSC)
+  languages:
+  - English
+  site_url: https://www.osti.gov/servlets/purl/3364558
   access_limitations:
   - UNL
   persons:
@@ -116,5 +125,9 @@ records:
   identifiers:
   - type: CN_DOE
     value: AC05-00OR22725; AC36-08GO28308; SC0023338
+  - type: CN_NONDOE
+    value: ERKP886
   - type: OTHER_ID
     value: SC0023338; AC36-08GO28308; AC05-00OR22725
+  - type: OTHER_ID
+    value: 'Journal ID: ISSN 1463-9262; Journal ID: ISSN 1463-9270'

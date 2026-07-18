@@ -4,18 +4,19 @@ title: CEDAR-aligned OSTI Submission Metadata
 description: >-
   A CEDAR-friendly LinkML profile of the OSTI (E-Link 2.0) submission schema.
   This is the "CEDAR-compatible version" of the OSTI model: it keeps the
-  submitter-facing bibliographic fields, flattens the parts of OSTI that do not
-  map cleanly onto a CEDAR form (a person's name is one field, not first/middle/
-  last; a single contact email instead of a list; award numbers lifted out of
-  nested identifier objects), and drops the internal E-Link bookkeeping/readonly
-  fields (added_by*, edited_by*, date_metadata_*, audit_logs, ...) that a
-  submitter never fills in.
+  submitter- and reader-facing bibliographic fields that real OSTI records
+  actually populate (surveyed across ~100 live public records), flattens the
+  parts of OSTI that do not map cleanly onto a CEDAR form (a person's name is
+  one field, not first/middle/last; a single contact email instead of a list;
+  award numbers lifted into nested identifier objects), and drops the internal
+  E-Link bookkeeping/readonly fields (added_by*, edited_by*, date_released_*,
+  audit_logs, workflow_status, ...) that a submitter never fills in.
 
   Data conforming to this schema is trivially wrapped into a CEDAR instance for
   the matching CEDAR template (see scripts/to_cedar_instance.py). The
   osti_schema -> osti_cedar mapping is declared in
   transform/osti_to_cedar.transform.yaml and executed with linkml-map.
-version: "0.1.0"
+version: "0.2.0"
 
 prefixes:
   linkml: https://w3id.org/linkml/
@@ -44,6 +45,11 @@ classes:
       keys of the generated CEDAR template so that instance wrapping is
       mechanical.
     attributes:
+
+      # --- identity & type ---------------------------------------------
+      osti_id:
+        description: The OSTI identifier for this record.
+        range: integer
       title:
         description: Title of the record.
         required: true
@@ -51,23 +57,49 @@ classes:
         description: Description or abstract for this record.
       product_type:
         description: OSTI product type code (e.g. DA, JA, TR).
+      product_type_other:
+        description: Free-text product type, when product_type is OTHER.
+      dataset_type:
+        description: Dataset sub-type (e.g. Instrument), for datasets.
+
+      # --- dates -------------------------------------------------------
       publication_date:
         description: Date of publication of this record.
         range: date
       publication_date_text:
         description: Free-text form of the publication date (e.g. "Summer 2001").
+      entry_date:
+        description: Date the record was entered into the OSTI system.
+        range: date
+
+      # --- identifiers & links -----------------------------------------
       doi:
         description: The DOI for this record, if any.
       osti_landing_url:
-        description: >-
-          The OSTI landing page for this record, derived from its OSTI ID.
+        description: The OSTI landing page for this record, derived from its OSTI ID.
         range: uri
+      full_text_url:
+        description: URL to the full text / dataset landing page, if any.
+        range: uri
+
+      # --- provenance & access -----------------------------------------
       site_ownership_code:
         description: Code of the DOE site submitting this document.
       country_publication_code:
         description: Country of publication code for this record.
+      language:
+        description: Language(s) of this record.
+        multivalued: true
       availability:
         description: Availability information for this record.
+      access_limitations:
+        description: Access/distribution limitation codes for this record.
+        multivalued: true
+        required: true
+      doe_funded_flag:
+        description: Whether the record is primarily DOE-funded (Y/N).
+
+      # --- bibliographic (journal / book) ------------------------------
       edition:
         description: Edition number, if applicable.
       volume:
@@ -76,18 +108,41 @@ classes:
         description: Issue number, if applicable.
       journal_name:
         description: Name of the journal publishing this record, if applicable.
+      journal_type:
+        description: Journal article sub-type code (e.g. AM, FT), if applicable.
+      journal_issn:
+        description: ISSN of the journal, if applicable.
+      article_type:
+        description: Legacy journal article type, if applicable.
+      publisher:
+        description: Publisher information, if applicable.
+      bibliographic_citation:
+        description: Free-text bibliographic citation / relation, if provided.
+
+      # --- conference / report -----------------------------------------
       conference_title:
         description: Title of the conference, if applicable.
+      conference_information:
+        description: Free-text conference information, if applicable.
+      conference_location:
+        description: Location of the conference, if applicable.
+      conference_date:
+        description: Date(s) of the conference, if applicable.
+      report_types:
+        description: Report type code(s), if applicable.
+        multivalued: true
+      format_information:
+        description: Format / technical requirements information, if applicable.
+
+      # --- descriptive -------------------------------------------------
       keywords:
         description: Key words for this record.
         multivalued: true
       subject_category_codes:
-        description: Two-character subject category codes for this record.
+        description: Subject category codes / descriptors for this record.
         multivalued: true
-      access_limitations:
-        description: Access/distribution limitation codes for this record.
-        multivalued: true
-        required: true
+
+      # --- people & organizations --------------------------------------
       persons:
         description: People (authors, contributors, contacts) for this record.
         range: CedarPerson

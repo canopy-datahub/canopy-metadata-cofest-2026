@@ -25,6 +25,9 @@ class_derivations:
   OSTIRecord:
     populated_from: Record
     slot_derivations:
+      # --- identity & type ---
+      osti_id:
+        populated_from: osti_id
       title:
         populated_from: title
       description:
@@ -32,21 +35,40 @@ class_derivations:
       # Enum-valued in OSTI; read as a bare-name string label for CEDAR.
       product_type:
         expr: "product_type"
+      product_type_other:
+        populated_from: product_type_other
+      dataset_type:
+        expr: "dataset_type"
+      # --- dates (bare-name expr avoids datetime->date coercion) ---
       publication_date:
         populated_from: publication_date
       publication_date_text:
         populated_from: publication_date_text
+      entry_date:
+        expr: "entry_date"
+      # --- identifiers & links ---
       doi:
         populated_from: doi
       # Derived: build the OSTI landing-page URL from the record's OSTI ID.
       osti_landing_url:
         expr: "'https://www.osti.gov/biblio/' + str(osti_id) if osti_id else None"
+      full_text_url:
+        populated_from: site_url
+      # --- provenance & access ---
       site_ownership_code:
         populated_from: site_ownership_code
       country_publication_code:
         populated_from: country_publication_code
+      language:
+        populated_from: languages
       availability:
         populated_from: availability
+      # Enum-valued, multivalued; pass the list of codes through as strings.
+      access_limitations:
+        expr: "access_limitations"
+      doe_funded_flag:
+        populated_from: doe_funded_flag
+      # --- bibliographic ---
       edition:
         populated_from: edition
       volume:
@@ -55,15 +77,35 @@ class_derivations:
         populated_from: issue
       journal_name:
         populated_from: journal_name
+      journal_type:
+        populated_from: journal_type
+      journal_issn:
+        populated_from: journal_issn
+      article_type:
+        populated_from: article_type
+      publisher:
+        populated_from: publisher_information
+      bibliographic_citation:
+        expr: "relation"
+      # --- conference / report ---
       conference_title:
         populated_from: conference_title
+      conference_information:
+        populated_from: conference_information
+      conference_location:
+        populated_from: conference_location
+      conference_date:
+        populated_from: conference_date
+      report_types:
+        populated_from: report_types
+      format_information:
+        populated_from: format_information
+      # --- descriptive ---
       keywords:
         populated_from: keywords
       subject_category_codes:
         populated_from: subject_category_code
-      # Enum-valued, multivalued; pass the list of codes through as strings.
-      access_limitations:
-        expr: "access_limitations"
+      # --- people & organizations ---
       persons:
         populated_from: persons
       organizations:

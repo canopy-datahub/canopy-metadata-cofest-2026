@@ -149,10 +149,13 @@ def normalize(rec: dict) -> dict:
     if pt:
         out["product_type"] = PRODUCT_TYPE_CODES.get(str(pt).strip().lower(), str(pt).strip())
 
-    # publication_date: keep the date part only (schema range is `date`)
+    # dates: keep the date part only (schema ranges are date/datetime)
     pd = rec.get("publication_date")
     if pd:
         out["publication_date"] = str(pd).split("T")[0]
+    ed = rec.get("entry_date") or rec.get("date_metadata_added")
+    if ed:
+        out["entry_date"] = str(ed).split("T")[0]
 
     # country: prefer modern code; else map the legacy name
     if rec.get("country_publication_code"):
@@ -161,10 +164,43 @@ def normalize(rec: dict) -> dict:
         name = str(rec["country_publication"]).strip()
         out["country_publication_code"] = COUNTRY_CODES.get(name.lower(), name)
 
-    for k in ("availability", "site_ownership_code", "edition", "volume", "issue",
-              "journal_name", "conference_title", "publication_date_text"):
+    # simple string passthroughs (same slot name in osti_schema)
+    for k in ("availability", "site_ownership_code", "edition", "journal_name",
+              "journal_type", "journal_issn", "article_type", "doe_funded_flag",
+              "product_type_other", "publication_date_text", "relation",
+              "conference_title", "conference_information", "conference_location",
+              "conference_date", "format_information", "dataset_type"):
         if rec.get(k):
             out[k] = _clean(rec[k])
+
+    # volume / issue: prefer modern, else the legacy journal_* variants
+    for modern, legacy in (("volume", "journal_volume"), ("issue", "journal_issue")):
+        val = rec.get(modern) or rec.get(legacy)
+        if val:
+            out[modern] = _clean(val)
+
+    # publisher: modern publisher_information, else legacy publisher
+    pub = rec.get("publisher_information") or rec.get("publisher")
+    if pub:
+        out["publisher_information"] = _clean(pub)
+
+    # language(s): modern list, else legacy scalar/list
+    lang = rec.get("languages") or rec.get("language")
+    if lang:
+        out["languages"] = lang if isinstance(lang, list) else [lang]
+
+    # report types (modern, list)
+    if rec.get("report_types"):
+        out["report_types"] = rec["report_types"]
+
+    # full-text / landing URL: modern site_url, else a fulltext link
+    if rec.get("site_url"):
+        out["site_url"] = rec["site_url"]
+    else:
+        for link in rec.get("links", []) or []:
+            if isinstance(link, dict) and link.get("rel") == "fulltext" and link.get("href"):
+                out["site_url"] = link["href"]
+                break
 
     # keywords / subject categories
     if rec.get("keywords"):
@@ -196,16 +232,28 @@ def normalize(rec: dict) -> dict:
         if orgs:
             out["organizations"] = orgs
 
-    # --- identifiers: modern, else legacy contract numbers ----------------
+    # --- identifiers: modern, else legacy contract / report numbers -------
     if rec.get("identifiers"):
         out["identifiers"] = rec["identifiers"]
     else:
-        ids = []
-        for k in ("doe_contract_number", "contract_number", "identifier"):
-            val = _clean(rec.get(k))
-            if val and not any(i["value"] == val for i in ids):
-                itype = "CN_DOE" if k in ("doe_contract_number", "contract_number") else "OTHER_ID"
-                ids.append({"type": itype, "value": val})
+        ids: list[dict] = []
+        # source legacy field -> OSTI IdentifierType code
+        legacy_id_fields = [
+            ("doe_contract_number", "CN_DOE"),
+            ("contract_number", "CN_DOE"),
+            ("nondoe_contract_number", "CN_NONDOE"),
+            ("report_number", "RN"),
+            ("identifier", "OTHER_ID"),
+            ("other_number", "OTHER_ID"),
+            ("other_identifiers", "OTHER_ID"),
+        ]
+        for field, itype in legacy_id_fields:
+            raw = rec.get(field)
+            values = raw if isinstance(raw, list) else [raw]
+            for v in values:
+                val = _clean(v)
+                if val and not any(i["value"] == val for i in ids):
+                    ids.append({"type": itype, "value": val})
         if ids:
             out["identifiers"] = ids
 
