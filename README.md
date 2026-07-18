@@ -184,3 +184,14 @@ Examples of useful deliverables include:
 ## License
 
 [GPL-3.0](LICENSE).
+
+## Links to contributor codes
+
+| Name 
+|------------------------
+| [Anne Ketter](https://github.com/annekeCC/canopy-metadata-ccncbi-2026) 
+| [Anoushka Prabhu](https://github.com/anoushka-prabhu30/canopy-metadata-cofest-2026)
+| [Aydan Gasimova]()
+| [Daniel Kerchner](https://github.com/kerchner/canopy-metadata-cofest-2026)
+| [Harry Caufield]()
+| [Nahid Zeinali](https://github.com/Nahidzeinali-web/canopy-metadata-cofest-2026)
