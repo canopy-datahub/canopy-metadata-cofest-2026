@@ -1,0 +1,117 @@
+type: template
+name: Web Resource Metadata Template
+description: "A template for describing a web site, database, or online data resource — its identity, type, access URLs, license, and maintainers."
+id: https://repo.metadatacenter.org/templates/e12d79d1-726c-4bd8-8ae4-c1af06e650a4
+status: draft
+version: 0.0.1
+modelVersion: 1.6.0
+children:
+  - key: resource_name
+    type: text-field
+    name: Resource Name
+    description: The name of the web site or data resource
+    modelVersion: 1.6.0
+    configuration:
+      required: true
+      propertyIri: https://schema.metadatacenter.org/properties/resource_name
+  - key: description
+    type: text-area-field
+    name: Description
+    description: A free-text summary of what the resource is and does
+    modelVersion: 1.6.0
+    configuration:
+      required: true
+      propertyIri: https://schema.metadatacenter.org/properties/description
+  - key: resource_type
+    type: controlled-term-field
+    name: Resource Type
+    description: "The kind of resource, chosen from the NCI Thesaurus (e.g. Registry, Database, Knowledge Base, Website)"
+    modelVersion: 1.6.0
+    datatype: iri
+    values:
+      - type: ontology
+        acronym: NCIT
+        ontologyName: National Cancer Institute Thesaurus
+        iri: https://data.bioontology.org/ontologies/NCIT
+    configuration:
+      recommended: true
+      propertyIri: https://schema.metadatacenter.org/properties/resource_type
+  - key: homepage
+    type: link-field
+    name: Homepage
+    description: The primary URL where the resource can be accessed
+    modelVersion: 1.6.0
+    configuration:
+      required: true
+      propertyIri: https://schema.metadatacenter.org/properties/homepage
+  - key: code_repository
+    type: link-field
+    name: Code Repository
+    description: "URL of the source code repository, if any"
+    modelVersion: 1.6.0
+    configuration:
+      propertyIri: https://schema.metadatacenter.org/properties/code_repository
+  - key: documentation_url
+    type: link-field
+    name: Documentation URL
+    description: "URL of the resource's documentation, if any"
+    modelVersion: 1.6.0
+    configuration:
+      propertyIri: https://schema.metadatacenter.org/properties/documentation_url
+  - key: license
+    type: text-field
+    name: License
+    description: The license under which the resource is made available
+    modelVersion: 1.6.0
+    configuration:
+      propertyIri: https://schema.metadatacenter.org/properties/license
+  - key: programming_language
+    type: text-field
+    name: Programming Language
+    description: A programming language used to build the resource
+    modelVersion: 1.6.0
+    configuration:
+      propertyIri: https://schema.metadatacenter.org/properties/programming_language
+      multiple: true
+      minItems: 0
+  - key: keywords
+    type: text-field
+    name: Keywords
+    description: A keyword or tag describing the resource
+    modelVersion: 1.6.0
+    configuration:
+      propertyIri: https://schema.metadatacenter.org/properties/keywords
+      multiple: true
+      minItems: 0
+  - key: maintainers
+    type: element
+    name: Maintainer
+    description: A person or organization responsible for maintaining the resource
+    modelVersion: 1.6.0
+    children:
+      - key: name
+        type: text-field
+        name: Name
+        description: Name of the maintainer (person or organization)
+        modelVersion: 1.6.0
+        configuration:
+          required: true
+          propertyIri: https://schema.metadatacenter.org/properties/name
+      - key: orcid
+        type: ext-orcid-field
+        name: ORCID
+        description: "The maintainer's ORCID identifier, if an individual"
+        modelVersion: 1.6.0
+        configuration:
+          propertyIri: https://schema.metadatacenter.org/properties/orcid
+      - key: url
+        type: link-field
+        name: URL
+        description: A homepage or profile URL for the maintainer (e.g. GitHub)
+        modelVersion: 1.6.0
+        configuration:
+          propertyIri: https://schema.metadatacenter.org/properties/url
+    configuration:
+      propertyIri: https://schema.metadatacenter.org/properties/maintainers
+      multiple: true
+      minItems: 0
