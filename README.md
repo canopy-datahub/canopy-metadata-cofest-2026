@@ -151,14 +151,13 @@ Examples of useful deliverables include:
 > 2. **📂 Work in the `work/` folder.** Keep everything you produce there.
 > 3. **⚙️ If you followed the turorial tools and servers should already be installed but if not:** — open the **👉 [setup guide](INSTALL.md)** and follow it.
 
-## Team
+## CoFest 2026 On-Site Team
 
 | Name                   | Role             | Affiliation         |
 |------------------------|------------------|---------------------|
 | Attila L. Egyedi       | Project Lead     | Stanford University |
 | Mete Akdogan           | Project Support  | Stanford University |
 | Marcos Martínez Romero | Project Support  | Stanford University |
-| Matthew Horridge       | Project Support  | Stanford University |
 
 ## Links
 
