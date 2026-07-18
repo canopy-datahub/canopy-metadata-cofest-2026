@@ -157,11 +157,11 @@ Examples of useful deliverables include:
 
 ## CoFest 2026 On-Site Team
 
-| Name                   | Role             | Affiliation         |
-|------------------------|------------------|---------------------|
-| Attila L. Egyedi       | Project Lead     | Stanford University |
-| Mete Akdogan           | Project Support  | Stanford University |
-| Marcos Martínez Romero | Project Support  | Stanford University |
+| Name                   | Role            | Affiliation         | Email                                                 |
+| ---------------------- | --------------- | ------------------- | ----------------------------------------------------- |
+| Attila L. Egyedi       | Project Lead    | Stanford University | [egyedia@stanford.edu](mailto:egyedia@stanford.edu)   |
+| Mete Akdogan           | Project Support | Stanford University | [mete@stanford.edu](mailto:mete@stanford.edu)         |
+| Marcos Martínez Romero | Project Support | Stanford University | [marcosmr@stanford.edu](mailto:marcosmr@stanford.edu) |
 
 ## Links
 
@@ -185,13 +185,15 @@ Examples of useful deliverables include:
 
 [GPL-3.0](LICENSE).
 
-## Links to contributor codes
+## CoFest 2026 Participant Forks
 
-| Name 
-|------------------------
-| [Anne Ketter](https://github.com/annekeCC/canopy-metadata-ccncbi-2026) 
-| [Anoushka Prabhu](https://github.com/anoushka-prabhu30/canopy-metadata-cofest-2026)
-| Aydan Gasimova
-| [Daniel Kerchner](https://github.com/kerchner/canopy-metadata-cofest-2026)
-| Harry Caufield
-| [Nahid Zeinali](https://github.com/Nahidzeinali-web/canopy-metadata-cofest-2026)
+The repositories below are forks created by participants in the Canopy: AI-Assisted Metadata Generation project during CoFest 2026.
+
+| Participant     | Institution                              | Email                                                                 | Project Fork                                                                        |
+| --------------- | ---------------------------------------- | --------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| Anne Ketter     | ComputerCraft                            | [aketter@computercraft-usa.com](mailto:aketter@computercraft-usa.com) | [View repository](https://github.com/annekeCC/canopy-metadata-ccncbi-2026)          |
+| Anoushka Prabhu | Johns Hopkins University                 | [anoushkaprabhu3@gmail.com](mailto:anoushkaprabhu3@gmail.com)         | [View repository](https://github.com/anoushka-prabhu30/canopy-metadata-cofest-2026) |
+| Aydan Gasimova  | California Medical Innovations Institute | [agasimova@calmi2.org](mailto:agasimova@calmi2.org)                   | Not yet available                                                                   |
+| Daniel Kerchner | George Washington University             | [kerchner@gwu.edu](mailto:kerchner@gwu.edu)                           | [View repository](https://github.com/kerchner/canopy-metadata-cofest-2026)          |
+| Harry Caufield  | Lawrence Berkeley National Laboratory    | [jhc@lbl.gov](mailto:jhc@lbl.gov)                                     | Not yet available                                                                   |
+| Nahid Zeinali   | California Medical Innovations Institute | [nzeinali@calmi2.org](mailto:nzeinali@calmi2.org)                     | [View repository](https://github.com/Nahidzeinali-web/canopy-metadata-cofest-2026)  |
