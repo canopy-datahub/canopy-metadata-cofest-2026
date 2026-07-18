@@ -46,10 +46,10 @@ To complete the tutorial, you'll use the **MCP (Model Context Protocol) servers*
 
 | MCP server | Purpose |
 |------------|---------|
-| [`cedar‑artifact‑mcp`](...) | Create and validate CEDAR templates and metadata instances. |
-| [`bioportal‑term‑mcp`](...) | Search BioPortal for ontology terms and controlled vocabulary values. |
-| [`cedar‑artifact‑rest‑mcp`](...) | Upload, retrieve, and manage templates and instances on a CEDAR server. |
-| [`cedar‑cee‑mcp`](...) | Visualize templates and instances as interactive forms using the CEDAR Embeddable Editor. |
+| [`cedar‑artifact‑mcp`](https://github.com/metadatacenter/cedar-artifact-mcp) | Create and validate CEDAR templates and metadata instances. |
+| [`bioportal‑term‑mcp`](https://github.com/metadatacenter/bioportal-term-mcp) | Search BioPortal for ontology terms and controlled vocabulary values. |
+| [`cedar‑artifact‑rest‑mcp`](https://github.com/metadatacenter/cedar-artifact-rest-mcp) | Upload, retrieve, and manage templates and instances on a CEDAR server. |
+| [`cedar‑cee‑mcp`](https://github.com/metadatacenter/cedar-cee-mcp) | Visualize templates and instances as interactive forms using the CEDAR Embeddable Editor. |
 
 Throughout this tutorial, you'll interact with your LLM using natural language. In most cases, the LLM will automatically choose the appropriate MCP server. If it doesn't, you can explicitly ask it to use a specific MCP based on the table above. 
 
