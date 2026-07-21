@@ -18,8 +18,11 @@ venv/
 *.key
 secrets.*
 .cedar_api_key
+.mcp.json
+.claude.json
 
 # Generated / scratch output
 output/
 scratch/
 *.log
+elink_token

@@ -1,0 +1,74 @@
+type: template
+name: Publication Metadata Template
+description: "A simple template for capturing basic metadata about a scientific publication, including its title, authors, publication date, publication type, and keywords."
+id: https://repo.metadatacenter.org/templates/a2461482-6a07-45fb-923c-dd664b820530
+status: draft
+version: 0.0.1
+modelVersion: 1.6.0
+children:
+  - key: title
+    type: text-field
+    name: Title
+    description: The title of the publication
+    modelVersion: 1.6.0
+    configuration:
+      required: true
+      propertyIri: https://schema.metadatacenter.org/properties/title
+  - key: authors
+    type: element
+    name: Author
+    description: An author of the publication
+    modelVersion: 1.6.0
+    children:
+      - key: name
+        type: text-field
+        name: Name
+        description: Full name of the author
+        modelVersion: 1.6.0
+        configuration:
+          required: true
+          propertyIri: https://schema.metadatacenter.org/properties/name
+      - key: orcid
+        type: ext-orcid-field
+        name: ORCID
+        description: The author's ORCID identifier
+        modelVersion: 1.6.0
+        configuration:
+          propertyIri: https://schema.metadatacenter.org/properties/orcid
+    configuration:
+      propertyIri: https://schema.metadatacenter.org/properties/authors
+      multiple: true
+      minItems: 1
+  - key: publication_date
+    type: temporal-field
+    name: Publication Date
+    description: The date the publication was published
+    modelVersion: 1.6.0
+    datatype: xsd:date
+    granularity: day
+    configuration:
+      propertyIri: https://schema.metadatacenter.org/properties/publication_date
+  - key: publication_type
+    type: controlled-term-field
+    name: Publication Type
+    description: "The type of publication, selected from subclasses of the SIO 'publication' term"
+    modelVersion: 1.6.0
+    datatype: iri
+    values:
+      - type: branch
+        ontologyName: Semanticscience Integrated Ontology
+        acronym: SIO
+        termLabel: publication
+        iri: http://semanticscience.org/resource/SIO_000087
+        maxDepth: 0
+    configuration:
+      propertyIri: https://schema.metadatacenter.org/properties/publication_type
+  - key: keywords
+    type: text-field
+    name: Keywords
+    description: A keyword describing the publication
+    modelVersion: 1.6.0
+    configuration:
+      propertyIri: https://schema.metadatacenter.org/properties/keywords
+      multiple: true
+      minItems: 0

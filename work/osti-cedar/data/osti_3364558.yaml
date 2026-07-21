@@ -1,0 +1,133 @@
+records:
+- osti_id: 3364558
+  title: Valorization of consolidated bioprocessing residues for bioplastics
+  description: This study demonstrates an organic solvent-free processing strategy to valorize consolidated
+    bioprocessing (CBP) residues, from switchgrass and poplar biomass, into functional poly(butylene succinate)
+    (PBS)-based biocomposites using high-shear homogenization (HSH). HSH transformed the switchgrass and
+    poplar CBP residues (CBP-R) into fine, uniformly distributed particles and microfibers. The composites
+    of PBS with homogenized switchgrass residues (H-CBP-R-SG) or homogenized poplar residues (H-CBP-R-P)
+    at a 70/30 weight ratio exhibited improved processability and mechanical integrity, with the Young's
+    modulus for the PBS/H-CBP-R-SG and PBS/H-CBP-R-P nearly doubling to 0.66 ± 0.07 GPa and 0.65 ± 0.04
+    GPa, respectively, compared to neat PBS (0.36 ± 0.02 GPa). Dynamic Mechanical Analysis (DMA) reveals
+    a significant suppression of the tan δ peak magnitude, indicating that HSH-mediated physical activation
+    facilitates stress transfer in composites typical of covalent chemical grafting systems. While the
+    transition to a stiffness-dominated profile reduces ductility, the resulting composites exhibit the
+    dimensional stability and resistance to thermal warping required for high-fidelity FDM 3D printing
+    and injection molding. Beyond material performance, comprehensive techno-economic analysis (TEA) and
+    life cycle assessment (LCA) confirmed that diverting CBP residues into composite products can improve
+    the economic viability of the biorefinery without substantially increasing biorefinery global warming
+    potential (GWP). At a 30 wt% blend ratio, incorporating residuals into PBS yielded a minimum selling
+    price for the composite of $\$4.07$ per kg compared to the conventional bioplastic price of $\$5.00$
+    per kg. This approach aligns with circular bioeconomy principles by converting waste streams into
+    value-added products. Furthermore, this innovative strategy addresses key challenges in bioplastic
+    development, including cost, compatibility, and performance, while simultaneously advancing waste
+    minimization strategies for sustainable manufacturing systems.
+  doi: 10.1039/D6GC00489J
+  product_type: JA
+  publication_date: '2026-05-21'
+  entry_date: '2026-05-27'
+  country_publication_code: US
+  journal_name: Green Chemistry
+  journal_type: AM
+  journal_issn: ISSN 1463-9262
+  article_type: Accepted Manuscript
+  relation: 'Journal Name: Green Chemistry'
+  publisher_information: Royal Society of Chemistry (RSC)
+  languages:
+  - English
+  site_url: https://www.osti.gov/servlets/purl/3364558
+  access_limitations:
+  - UNL
+  persons:
+  - type: AUTHOR
+    orcid: 0000-0001-7849-8900
+    affiliations:
+    - name: University of Georgia, Athens, GA (United States)
+    first_name: Nataraja S.
+    last_name: Yadavalli
+  - type: AUTHOR
+    orcid: 0000-0003-0042-528X
+    affiliations:
+    - name: University of Georgia, Athens, GA (United States)
+    first_name: Mohammad
+    last_name: Aghajohari
+  - type: AUTHOR
+    affiliations:
+    - name: National Laboratory of the Rockies, Golden, CO (United States)
+    first_name: Neal N.
+    last_name: Hengge
+  - type: AUTHOR
+    affiliations:
+    - name: University of Georgia, Athens, GA (United States)
+    first_name: Daniel C.
+    last_name: Josey
+  - type: AUTHOR
+    affiliations:
+    - name: National Laboratory of the Rockies, Golden, CO (United States)
+    first_name: Jacob
+    last_name: Dempsey
+  - type: AUTHOR
+    affiliations:
+    - name: National Laboratory of the Rockies, Golden, CO (United States)
+    first_name: Jacob K.
+    last_name: Kenny
+  - type: AUTHOR
+    orcid: 0000-0003-3438-253X
+    affiliations:
+    - name: National Laboratory of the Rockies, Golden, CO (United States)
+    first_name: Bruno C.
+    last_name: Klein
+  - type: AUTHOR
+    orcid: 0000-0002-1558-5887
+    affiliations:
+    - name: National Laboratory of the Rockies, Golden, CO (United States)
+    first_name: Rebecca J.
+    last_name: Hanes
+  - type: AUTHOR
+    affiliations:
+    - name: Dartmouth College, Hanover, NH (United States)
+    first_name: Evert K.
+    last_name: Holwerda
+  - type: AUTHOR
+    affiliations:
+    - name: National Laboratory of the Rockies, Golden, CO (United States)
+    first_name: Yannick J.
+    last_name: Bomble
+  - type: AUTHOR
+    orcid: 0009-0006-2273-4250
+    affiliations:
+    - name: University of Georgia, Athens, GA (United States)
+    first_name: Kush G.
+    last_name: Patel
+  - type: AUTHOR
+    orcid: 0000-0001-9272-2403
+    affiliations:
+    - name: University of Georgia, Athens, GA (United States)
+    first_name: Jason J.
+    last_name: Locklin
+  - type: AUTHOR
+    orcid: 0000-0002-7747-9668
+    affiliations:
+    - name: University of Georgia, Athens, GA (United States)
+    first_name: Sergiy
+    last_name: Minko
+  - type: AUTHOR
+    orcid: 0000-0001-5247-4513
+    affiliations:
+    - name: University of Georgia, Athens, GA (United States)
+    first_name: Breeanna R.
+    last_name: Urbanowicz
+  organizations:
+  - type: SPONSOR
+    name: USDOE Office of Science (SC), Biological and Environmental Research (BER)
+  - type: RESEARCHING
+    name: University of Georgia, Athens, GA (United States)
+  identifiers:
+  - type: CN_DOE
+    value: AC05-00OR22725; AC36-08GO28308; SC0023338
+  - type: CN_NONDOE
+    value: ERKP886
+  - type: OTHER_ID
+    value: SC0023338; AC36-08GO28308; AC05-00OR22725
+  - type: OTHER_ID
+    value: 'Journal ID: ISSN 1463-9262; Journal ID: ISSN 1463-9270'

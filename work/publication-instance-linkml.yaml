@@ -1,0 +1,295 @@
+type: instance
+name: "LinkML: an open data modeling framework"
+id: https://repo.metadatacenter.org/template-instances/a0c3824a-3ad6-43f4-b3cb-59933bef09d6
+isBasedOn: https://repo.metadatacenter.org/templates/a2461482-6a07-45fb-923c-dd664b820530
+children:
+  title:
+    value: "LinkML: an open data modeling framework"
+  authors:
+    - children:
+        name:
+          value: "Sierra A T Moxon"
+        orcid:
+          id: https://orcid.org/0000-0002-8719-7760
+    - children:
+        name:
+          value: "Harold Solbrig"
+        orcid:
+          id: https://orcid.org/0000-0002-5928-3071
+    - children:
+        name:
+          value: "Nomi L Harris"
+        orcid:
+          id: https://orcid.org/0000-0001-6315-3707
+    - children:
+        name:
+          value: "Patrick Kalita"
+        orcid:
+          id: https://orcid.org/0000-0002-6150-307X
+    - children:
+        name:
+          value: "Mark A Miller"
+    - children:
+        name:
+          value: "Sujay Patil"
+        orcid:
+          id: https://orcid.org/0000-0001-6142-1106
+    - children:
+        name:
+          value: "Kevin Schaper"
+        orcid:
+          id: https://orcid.org/0000-0003-3311-7320
+    - children:
+        name:
+          value: "Chris Bizon"
+        orcid:
+          id: https://orcid.org/0000-0002-9491-7674
+    - children:
+        name:
+          value: "J Harry Caufield"
+        orcid:
+          id: https://orcid.org/0000-0001-5705-7831
+    - children:
+        name:
+          value: "Silvano Cirujano Cuesta"
+    - children:
+        name:
+          value: "Corey Cox"
+        orcid:
+          id: https://orcid.org/0000-0001-9042-5982
+    - children:
+        name:
+          value: "Frank Dekervel"
+        orcid:
+          id: https://orcid.org/0009-0008-4913-7127
+    - children:
+        name:
+          value: "Damion M Dooley"
+        orcid:
+          id: https://orcid.org/0000-0002-8844-9165
+    - children:
+        name:
+          value: "William D Duncan"
+        orcid:
+          id: https://orcid.org/0000-0001-9625-1899
+    - children:
+        name:
+          value: "Tim Fliss"
+        orcid:
+          id: https://orcid.org/0000-0003-3303-658X
+    - children:
+        name:
+          value: "Sarah Gehrke"
+        orcid:
+          id: https://orcid.org/0000-0003-3245-2880
+    - children:
+        name:
+          value: "Adam S L Graefe"
+        orcid:
+          id: https://orcid.org/0009-0004-8124-8864
+    - children:
+        name:
+          value: "Harshad Hegde"
+        orcid:
+          id: https://orcid.org/0000-0002-2411-565X
+    - children:
+        name:
+          value: "A J Ireland"
+        orcid:
+          id: https://orcid.org/0000-0003-1982-9065
+    - children:
+        name:
+          value: "Julius O B Jacobsen"
+        orcid:
+          id: https://orcid.org/0000-0002-3265-1591
+    - children:
+        name:
+          value: "Madan Krishnamurthy"
+        orcid:
+          id: https://orcid.org/0000-0002-9767-3636
+    - children:
+        name:
+          value: "Carlo Kroll"
+        orcid:
+          id: https://orcid.org/0009-0008-4562-7399
+    - children:
+        name:
+          value: "David Linke"
+        orcid:
+          id: https://orcid.org/0000-0002-5898-1820
+    - children:
+        name:
+          value: "Ryan Ly"
+        orcid:
+          id: https://orcid.org/0000-0001-9238-0642
+    - children:
+        name:
+          value: "Nicolas Matentzoglu"
+        orcid:
+          id: https://orcid.org/0000-0002-7356-1779
+    - children:
+        name:
+          value: "James A Overton"
+        orcid:
+          id: https://orcid.org/0000-0001-5139-5557
+    - children:
+        name:
+          value: "Jonny L Saunders"
+        orcid:
+          id: https://orcid.org/0000-0003-0545-5066
+    - children:
+        name:
+          value: "Deepak R Unni"
+        orcid:
+          id: https://orcid.org/0000-0002-3583-7340
+    - children:
+        name:
+          value: "Gaurav Vaidya"
+        orcid:
+          id: https://orcid.org/0000-0003-0587-0454
+    - children:
+        name:
+          value: "Wouter-Michiel A M Vierdag"
+        orcid:
+          id: https://orcid.org/0000-0003-1666-5421
+    - children:
+        name:
+          value: "LinkML Community Contributors"
+    - children:
+        name:
+          value: "Richard M Bruskiewich"
+    - children:
+        name:
+          value: "Seth Carbon"
+    - children:
+        name:
+          value: "Eric Cavanna"
+    - children:
+        name:
+          value: "John-Marc Chandonia"
+    - children:
+        name:
+          value: "Shreyas Cholia"
+    - children:
+        name:
+          value: "Ben Dichter"
+    - children:
+        name:
+          value: "Emiley A Eloe-Fadrosh"
+    - children:
+        name:
+          value: "Vincent Emonet"
+    - children:
+        name:
+          value: "Shahim Essaid"
+    - children:
+        name:
+          value: "James A Fellows Yates"
+    - children:
+        name:
+          value: "Joseph Flack"
+    - children:
+        name:
+          value: "Satrajit S Ghosh"
+    - children:
+        name:
+          value: "Damien Goutte-Gattat"
+    - children:
+        name:
+          value: "Dorota Jarecka"
+    - children:
+        name:
+          value: "Dazhi Jiao"
+    - children:
+        name:
+          value: "Marcin P Joachimiak"
+    - children:
+        name:
+          value: "Vlad Korolev"
+    - children:
+        name:
+          value: "Volodymyr Lapkin"
+    - children:
+        name:
+          value: "Noel McLoughlin"
+    - children:
+        name:
+          value: "Sierra D Miller"
+    - children:
+        name:
+          value: "Michael Milton"
+    - children:
+        name:
+          value: "Josh Moore"
+    - children:
+        name:
+          value: "Moni Munoz-Torres"
+    - children:
+        name:
+          value: "B Nolan Nichols"
+    - children:
+        name:
+          value: "Justin T Reese"
+    - children:
+        name:
+          value: "Victoria Savage"
+    - children:
+        name:
+          value: "Philip Stroemert"
+    - children:
+        name:
+          value: "Jeremy Teoh"
+    - children:
+        name:
+          value: "Anne Thessen"
+    - children:
+        name:
+          value: "Isaac To"
+    - children:
+        name:
+          value: "Puja Trivedi"
+    - children:
+        name:
+          value: "Vincent Vialard"
+    - children:
+        name:
+          value: "Trish Whetzel"
+    - children:
+        name:
+          value: "Oliver Ruebel"
+        orcid:
+          id: https://orcid.org/0000-0001-9902-1984
+    - children:
+        name:
+          value: "Christopher G Chute"
+        orcid:
+          id: https://orcid.org/0000-0001-5437-2545
+    - children:
+        name:
+          value: "Matthew H Brush"
+        orcid:
+          id: https://orcid.org/0000-0002-1048-5019
+    - children:
+        name:
+          value: "Melissa A Haendel"
+        orcid:
+          id: https://orcid.org/0000-0001-9114-8737
+    - children:
+        name:
+          value: "Christopher J Mungall"
+        orcid:
+          id: https://orcid.org/0000-0002-6601-2165
+  publication_date:
+    datatype: xsd:date
+    value: 2025-12-12
+  publication_type:
+    id: http://semanticscience.org/resource/SIO_001029
+    label: peer reviewed article
+  keywords:
+    - value: "data modeling"
+    - value: "metadata"
+    - value: "schema language"
+    - value: "FAIR data"
+    - value: "linked data"
+    - value: "ontology"
+    - value: "knowledge graph"

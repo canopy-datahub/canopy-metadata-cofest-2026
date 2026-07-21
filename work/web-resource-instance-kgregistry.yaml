@@ -1,0 +1,43 @@
+type: instance
+name: KG-Registry
+id: https://repo.metadatacenter.org/template-instances/3d182125-f7b3-451e-a6d8-9070c67eab95
+isBasedOn: https://repo.metadatacenter.org/templates/e12d79d1-726c-4bd8-8ae4-c1af06e650a4
+children:
+  resource_name:
+    value: KG-Registry
+  description:
+    value: "A registry of Knowledge Graphs, their data sources, and the ways they fit together. KG-Registry catalogs knowledge graphs and their components — Resources (top-level knowledge graph entries) and Products (specific representations such as APIs or visualizations) — using a YAML-based data format, a web interface for browsing, SQL-based search powered by DuckDB, and command-line tools for data management. It also supports an agent-assisted curation workflow and publication reference validation."
+  resource_type:
+    id: http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C61393
+    label: Registry
+  homepage:
+    id: https://kghub.org/kg-registry/
+  code_repository:
+    id: https://github.com/Knowledge-Graph-Hub/kg-registry
+  documentation_url:
+    id: https://kghub.org/kg-registry/docs/intro/
+  license:
+    value: CC0 1.0 Universal
+  programming_language:
+    - value: Python
+    - value: HTML
+    - value: JavaScript
+  keywords:
+    - value: registry
+    - value: knowledge graph
+    - value: knowledge-graph
+    - value: kg
+    - value: kg-hub
+  maintainers:
+    - children:
+        name:
+          value: J. Harry Caufield
+        orcid:
+          id: https://orcid.org/0000-0001-5705-7831
+        url:
+          id: https://github.com/caufieldjh
+    - children:
+        name:
+          value: Knowledge Graph Hub
+        url:
+          id: https://github.com/Knowledge-Graph-Hub

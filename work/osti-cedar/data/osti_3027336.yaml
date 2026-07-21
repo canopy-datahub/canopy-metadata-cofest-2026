@@ -1,0 +1,45 @@
+records:
+- osti_id: 3027336
+  title: AmeriFlux FLUXNET-1F US-UiA University of Illinois Switchgrass
+  description: This is the AmeriFlux Management Project (AMP) created FLUXNET-1F version of the carbon
+    flux data for the site US-UiA University of Illinois Switchgrass. This is the FLUXNET version of the
+    carbon flux data for the site US-UiA University of Illinois Switchgrass produced by applying the standard
+    ONEFlux (1F) software. Site Description - Field was treated with Potash, lime and diammonium phosphate
+    before planting. Herbicide application included 2,4-D for 2008, 2009. 56 kg/ha nitrogen applied in
+    2010, 2011, 2012, 2013, 2014, 2016. Measurements were suspended on June 14, 2016 and resumed on May
+    28, 2024.
+  doi: 10.17190/AMF/3027336
+  product_type: DA
+  publication_date: '2026-04-03'
+  entry_date: '2026-07-16'
+  country_publication_code: US
+  languages:
+  - English
+  site_url: https://www.osti.gov/servlets/purl/3027336
+  access_limitations:
+  - UNL
+  persons:
+  - type: AUTHOR
+    first_name: Carl
+    last_name: Bernacchi
+  - type: AUTHOR
+    first_name: Bethany
+    last_name: Blakely
+  - type: AUTHOR
+    first_name: Caitlin
+    last_name: Moore
+  - type: AUTHOR
+    first_name: Taylor
+    last_name: Pederson
+  organizations:
+  - type: SPONSOR
+    name: USDOE
+  - type: SPONSOR
+    name: Center for Advanced Bioenergy and Bioproducts Innovation
+  - type: SPONSOR
+    name: Energy Biosciences Institute
+  - type: RESEARCHING
+    name: USDA/ARS
+  identifiers:
+  - type: CN_DOE
+    value: AC02-05CH11231

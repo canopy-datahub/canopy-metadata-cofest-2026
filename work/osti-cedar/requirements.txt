@@ -1,0 +1,5 @@
+# Python deps for the OSTI -> CEDAR pipeline.
+# Install into a venv, e.g.:
+#   uv venv .venv && . .venv/bin/activate && uv pip install -r requirements.txt
+linkml
+linkml-map
